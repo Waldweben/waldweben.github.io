@@ -1,0 +1,184 @@
+/* TIPOGRAFÍA */
+body {
+    margin: 0;
+    font-family: 'Anton', sans-serif;
+    overflow-x: hidden;
+    background: #111;
+}
+
+/* ===========================
+      ANIMACIONES
+=========================== */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+    from { transform: translateX(-40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pop {
+    from { opacity: 0; transform: scale(.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ===========================
+      MENÚ PRINCIPAL
+=========================== */
+
+#menu {
+    display: flex;
+    height: 100vh;
+}
+
+.columna {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 3vw;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.columna:hover {
+    transform: scale(1.1);
+}
+
+/* ===========================
+    PANTALLA PERSONA
+=========================== */
+
+#persona-container {
+    display: flex;
+    height: 100vh;
+    animation: slideRight 0.6s ease;
+}
+
+#persona-info {
+    width: 35%;
+    padding: 40px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#persona-info h1 {
+    font-size: 4vw;
+    margin-bottom: 30px;
+}
+
+#foto-persona {
+    width: 60%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    border: 6px solid black;
+    margin-bottom: 40px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 2vw;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===========================
+      LISTA DE REGALOS
+=========================== */
+
+#lista-container {
+    padding: 20px 60px;
+    animation: fadeIn 0.8s ease;
+}
+
+.lista-header {
+    padding: 20px;
+    color: black;
+    background: var(--colorPrincipal);
+}
+
+.galeria {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+}
+
+.item {
+    display: flex;
+    gap: 20px;
+    color: white;
+    animation: pop 0.5s ease;
+}
+
+.item img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    background: #ccc;
+}
+
+.btn-regresar {
+    margin: 40px auto;
+    display: block;
+    padding: 12px 25px;
+    background: #ff4a4a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-regresar:hover {
+    background: #ff7a7a;
+    transform: scale(1.05);
+/* ===========================
+    RESPONSIVE
+=========================== */
+
+@media (max-width: 900px) {
+    .columna { font-size: 6vw; }
+
+    #persona-container {
+        flex-direction: column;
+    }
+    #persona-info {
+        width: 100%;
+        height: 60%;
+        padding-top: 60px;
+    }
+    #persona-info h1 {
+        font-size: 10vw;
+    }
+    .btn {
+        font-size: 5vw;
+    }
+    #colores-lateral {
+        height: 40%;
+    }
+}
